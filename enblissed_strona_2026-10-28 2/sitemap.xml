@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://enblissed.com/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enblissed.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enblissed.com/en/"/>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://enblissed.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enblissed.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enblissed.com/en/"/>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://enblissed.com/book-free-consultation/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enblissed.com/book-free-consultation/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enblissed.com/en/book-free-consultation/"/>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://enblissed.com/en/book-free-consultation/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://enblissed.com/book-free-consultation/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://enblissed.com/en/book-free-consultation/"/>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+</urlset>
