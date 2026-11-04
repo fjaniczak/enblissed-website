@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darmowy check widoczności w Google | Enblissed</title>
+<meta name="description" content="Sprawdzę, jak Twoja firma remontowa wypada w Google Maps w Twoim mieście. Za darmo, po polsku, w 2 dni robocze.">
+<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="preload" href="/fonts/plus-jakarta-sans-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* fonty z serwera enblissed.com (/fonts), bez Google Fonts */
+  @font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/inter-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/inter-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/inter-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/inter-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/plus-jakarta-sans-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/plus-jakarta-sans-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/plus-jakarta-sans-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/plus-jakarta-sans-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  /* ===== Kolory marki: podmień tutaj, reszta strony się dopasuje ===== */
+  :root{
+    --ink:#101010;        /* tekst główny */
+    --muted:#4d5560;      /* tekst pomocniczy */
+    --bg:#ffffff;         /* tło strony */
+    --card:#ffffff;
+    --soft:#EEF6F4;       /* jasna zieleń z oferty */       /* tło kart */
+    --brand:#1E5163;      /* kolor marki (nagłówek, przycisk) */
+    --brand-ink:#ffffff;  /* tekst na kolorze marki */
+    --accent:#4FB39A;     /* akcent (liczby, podkreślenia) */
+    --line:#dfe6e8;       /* obramowania */
+    --error:#C8453A;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
+  a{color:var(--brand)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+
+  .topbar{height:8px;background:linear-gradient(90deg,#1E5163 0 40%,#2E74A8 40% 70%,#4FB39A 70%)}
+  header.top{padding:18px 0}
+  header.top .wrap{display:flex;justify-content:space-between;align-items:center}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#101010;font-family:'Plus Jakarta Sans',Inter,sans-serif;font-weight:800;letter-spacing:.14em;font-size:17px}
+  .logo img{width:44px;height:44px;display:block}
+  h1,h2,h3,.fact b{font-family:'Plus Jakarta Sans',Inter,sans-serif}
+  .lang{font-size:14px;color:var(--muted)}
+
+  .hero{padding:28px 0 8px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+  .eyebrow{display:inline-block;background:var(--soft);color:var(--brand);font-weight:600;font-size:13px;padding:4px 10px;border-radius:999px;margin-bottom:14px}
+  h1{font-size:40px;line-height:1.15;margin:0 0 16px;letter-spacing:-.5px}
+  h1 em{font-style:normal;color:var(--brand);border-bottom:4px solid var(--accent)}
+  .lead{font-size:18px;color:var(--muted);margin:0 0 22px}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+  .fact{border-left:4px solid var(--accent)}
+  .fact b{display:block;font-size:26px;color:var(--brand);line-height:1.1}
+  .fact span{font-size:13px;color:var(--muted)}
+  .src{font-size:12px;color:var(--muted)}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 10px 30px rgba(29,36,51,.06)}
+  .card h2{font-size:22px;margin:0 0 4px}
+  .card .sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+
+  form label{display:block;font-weight:500;font-size:14px;margin:14px 0 6px}
+  form .opt{font-weight:400;color:var(--muted)}
+  input[type=text],input[type=tel],input[type=email],select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+  input:focus,select:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips label{margin:0;font-weight:400;border:1px solid var(--line);border-radius:999px;padding:7px 12px;cursor:pointer;display:flex;gap:6px;align-items:center;font-size:14px}
+  .chips input{accent-color:var(--brand)}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:13px;color:var(--muted);margin-top:14px}
+  .consent input{margin-top:4px;accent-color:var(--brand);width:18px;height:18px;flex:0 0 18px}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  button{margin-top:20px;width:100%;background:var(--brand);color:var(--brand-ink);border:0;border-radius:10px;padding:14px 18px;font:inherit;font-weight:600;font-size:16px;cursor:pointer}
+  button:hover{filter:brightness(1.08)}
+  button[disabled]{opacity:.6;cursor:wait}
+  .err{color:var(--error);font-size:13px;margin-top:10px;display:none}
+  .done{display:none;text-align:center;padding:12px 0}
+  .done .tick{width:56px;height:56px;border-radius:50%;background:var(--soft);color:var(--brand);display:grid;place-items:center;margin:0 auto 12px;font-size:28px}
+
+  section.block{padding:48px 0}
+  .who{background:var(--soft)!important}
+  section.block h2{font-size:28px;margin:0 0 20px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .step .n{font-weight:700;color:var(--accent);font-size:14px}
+  .step h3{margin:4px 0 6px;font-size:17px}
+  .step p{margin:0;color:var(--muted);font-size:15px}
+  .list{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;padding:0;list-style:none;margin:0}
+  .list li{padding-left:28px;position:relative}
+  .list li:before{content:"✓";position:absolute;left:0;color:var(--brand);font-weight:700}
+  .who{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .avatar{width:72px;height:72px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-weight:700;font-size:26px}
+  .who p{margin:0 0 6px}
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+  summary{cursor:pointer;font-weight:600}
+  details p{color:var(--muted);margin:10px 0 0}
+  footer{padding:32px 0 48px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:24px}
+    h1{font-size:30px}
+    .steps{grid-template-columns:1fr}
+    .list{grid-template-columns:1fr}
+  }
+  @media (max-width:480px){
+    .row2,.facts{grid-template-columns:1fr}
+    .card{padding:18px}
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/"><img src="/img/sygnet.webp" alt="" width="44" height="44"><span>ENBLISSED</span></a>
+    <span class="lang">po polsku</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Dla polskich firm remontowych w NL</span>
+        <h1>Sprawdź, czy Holender, który szuka fachowca w Twoim mieście, <em>znajdzie Ciebie</em></h1>
+        <p class="lead">Wpisuję w Google to, co wpisują Twoi klienci, na przykład „badkamer renovatie Dordrecht”. Pokazuję Ci, kto jest na mapie, ile ma opinii i co możesz zrobić, żeby trafiać do większych zleceń bliżej domu. Za darmo, po polsku, w ciągu 2 dni roboczych.</p>
+
+        <div class="facts">
+          <div class="fact"><b>650 → 6</b><span>Haarlem: tyle firm remontowych jest w KvK i mniej więcej tyle widać na mapie Google</span></div>
+          <div class="fact"><b>3 miejsca</b><span>tyle firm Google pokazuje na mapie, zanim klient w ogóle zacznie przewijać</span></div>
+        </div>
+        <p class="src">Liczby z Haarlemu: moje pomiary (klusbedrijf-nu.nl i Google Maps), wrzesień 2026.</p>
+      </div>
+
+      <div class="card" id="formularz">
+        <div id="formWrap">
+          <h2>Zamów darmowy check</h2>
+          <p class="sub">Zajmie Ci to minutę. Bez zobowiązań.</p>
+          <form id="checkForm" novalidate>
+            <div class="row2">
+              <div>
+                <label for="imie">Imię</label>
+                <input id="imie" name="imie" type="text" autocomplete="given-name" required>
+              </div>
+              <div>
+                <label for="miasto">Miasto zleceń</label>
+                <input id="miasto" name="miasto" type="text" placeholder="np. Delft" required>
+              </div>
+            </div>
+
+            <label for="firma">Nazwa firmy <span class="opt">(tak jak w KvK albo w Google)</span></label>
+            <input id="firma" name="firma" type="text" required>
+
+            <label for="fach">Czym się głównie zajmujesz?</label>
+            <select id="fach" name="fach" required>
+              <option value="">Wybierz…</option>
+              <option>Remonty ogólne (klus)</option>
+              <option>Łazienki i kuchnie</option>
+              <option>Płytki</option>
+              <option>Tynki / szpachlowanie</option>
+              <option>Malowanie</option>
+              <option>Stolarka, okna, drzwi</option>
+              <option>Hydraulika / instalacje</option>
+              <option>Elektryka</option>
+              <option>Podłogi</option>
+              <option>Dachy / elewacje</option>
+              <option>Inne</option>
+            </select>
+
+            <label>Co jest dla Ciebie najważniejsze? <span class="opt">(możesz zaznaczyć kilka)</span></label>
+            <div class="chips">
+              <label><input type="checkbox" name="cel" value="Większe zlecenia">Większe zlecenia</label>
+              <label><input type="checkbox" name="cel" value="Bliżej domu">Bliżej domu</label>
+              <label><input type="checkbox" name="cel" value="Holenderscy klienci prywatni">Holenderscy klienci prywatni</label>
+              <label><input type="checkbox" name="cel" value="Mniej płacenia za Werkspot/Marktplaats">Mniej płacenia za Werkspot / Marktplaats</label>
+              <label><input type="checkbox" name="cel" value="Więcej zleceń">Więcej zleceń</label>
+            </div>
+
+            <div class="row2">
+              <div>
+                <label for="telefon">Telefon / WhatsApp</label>
+                <input id="telefon" name="telefon" type="tel" autocomplete="tel" placeholder="06…" required>
+              </div>
+              <div>
+                <label for="email">E-mail <span class="opt">(opcjonalnie)</span></label>
+                <input id="email" name="email" type="email" autocomplete="email">
+              </div>
+            </div>
+
+            <label for="strona">Strona internetowa <span class="opt">(jeśli masz)</span></label>
+            <input id="strona" name="strona" type="text" placeholder="np. mojafirma.nl">
+
+            <!-- pułapka na boty: ludzie tego pola nie widzą -->
+            <div class="hp" aria-hidden="true">
+              <label for="www">Nie wypełniaj</label>
+              <input id="www" name="www" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <label class="consent">
+              <input type="checkbox" id="zgoda_kontakt" name="zgoda_kontakt" value="tak" required>
+              <span>Zgadzam się, żeby Filip z Enblissed skontaktował się ze mną telefonicznie, przez WhatsApp lub e-mailem w sprawie wyników checka i usług poprawy widoczności w Google. Zgodę mogę w każdej chwili wycofać.</span>
+            </label>
+            <label class="consent">
+              <input type="checkbox" id="zgoda_wideo" name="zgoda_wideo" value="tak">
+              <span>Chcę też dostać krótkie wideo (2–3 minuty), w którym pokazujesz 2–3 rzeczy do poprawy na mojej wizytówce lub stronie.</span>
+            </label>
+
+            <button type="submit" id="sendBtn">Wyślij i odbierz darmowy check</button>
+            <p class="err" id="err"></p>
+            <p class="src" style="margin-top:12px">Twoje dane służą tylko do przygotowania checka i kontaktu w tej sprawie. Szczegóły niżej, w sekcji „Twoje dane”.</p>
+          </form>
+        </div>
+
+        <div class="done" id="done">
+          <div class="tick">✓</div>
+          <h2>Dzięki, mam Twoje zgłoszenie</h2>
+          <p class="sub">Przygotuję check w ciągu 2 dni roboczych i odezwę się na podany numer. Jeśli wolisz konkretną godzinę, napisz na <a href="mailto:filip@enblissed.com">filip@enblissed.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2>Jak to działa</h2>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Zgłaszasz firmę</h3><p>Nazwa, miasto i fach. Tyle mi wystarczy.</p></div>
+        <div class="step"><span class="n">2</span><h3>Sprawdzam Google</h3><p>Wpisuję frazy, których używają Twoi klienci, i porównuję Cię z trzema firmami z mapy.</p></div>
+        <div class="step"><span class="n">3</span><h3>Dostajesz wyniki</h3><p>Krótki raport po polsku i rozmowa na 10 minut, jeśli chcesz coś z tym zrobić.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <h2>Co znajdziesz w checku</h2>
+      <ul class="list">
+        <li>Na którym miejscu jesteś w Google Maps dla 2–3 fraz z Twojego fachu i miasta</li>
+        <li>Ile opinii mają firmy z pierwszej trójki i ile brakuje Tobie</li>
+        <li>Czy Twoja wizytówka ma właściwą kategorię (to częsty i darmowy do naprawy błąd)</li>
+        <li>Czy Google widzi Twój adres i stronę, czy się w nich gubi</li>
+        <li>Które frazy prowadzą do większych zleceń, na przykład łazienki zamiast drobnych napraw</li>
+        <li>2–3 konkretne rzeczy do poprawy, które możesz zrobić sam</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="who">
+        <img class="avatar" src="/filip.jpg" alt="Filip Janiczak" width="72" height="72" style="object-fit:cover">
+        <div>
+          <p><b>Filip Janiczak, Enblissed</b></p>
+          <p>Jestem Polakiem, mieszkam w Utrechcie. Od sierpnia przebadałem rynek remontowy w kilkunastu miastach Randstadu: Dordrecht, Delft, Haarlem, Zeist, Schiedam i innych. Pomagam polskim fachowcom pokazać się holenderskim klientom w Google, żeby mniej zależeli od Werkspota i poczty pantoflowej.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <h2>Pytania</h2>
+      <details><summary>Czy to naprawdę za darmo?</summary><p>Tak. Check nic nie kosztuje i niczego nie podpisujesz. Jeśli po rozmowie zechcesz, żebym poprawił Twoją widoczność, dostaniesz ofertę na piśmie. Jeśli nie, raport zostaje u Ciebie.</p></details>
+      <details><summary>Nie mam strony internetowej. Czy to ma sens?</summary><p>Tak. Wizytówka Google działa bez strony, a check pokaże Ci, czy w Twoim mieście strona jest w ogóle potrzebna na start.</p></details>
+      <details><summary>Mam dużo pracy. Po co mi to?</summary><p>Żeby wybierać zlecenia. Kiedy klienci znajdują Cię sami, możesz brać większe prace, bliżej domu i w lepszej cenie, zamiast łapać, co popadnie.</p></details>
+      <details><summary>Czy muszę mówić po niderlandzku?</summary><p>Nie. Rozmawiamy po polsku. Teksty dla holenderskich klientów przygotowuję po niderlandzku i sprawdza je native speaker.</p></details>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0" id="dane">
+    <div class="wrap">
+      <h2>Twoje dane</h2>
+      <p class="src" style="font-size:14px">Administratorem danych jest Enblissed, Filip Janiczak, kontakt: <a href="mailto:filip@enblissed.com">filip@enblissed.com</a>. Dane z formularza wykorzystuję wyłącznie do przygotowania checka i do kontaktu w tej sprawie, na podstawie Twojej zgody (art. 6 ust. 1 lit. a RODO / AVG). Przechowuję je do 12 miesięcy albo krócej, jeśli poprosisz o usunięcie. Masz prawo do wglądu, poprawienia i usunięcia danych oraz do wycofania zgody w każdej chwili, wystarczy e-mail. Nie sprzedaję i nie przekazuję danych dalej.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Enblissed · Utrecht · <a href="mailto:filip@enblissed.com">filip@enblissed.com</a></div>
+</footer>
+
+<script>
+  // >>> Wklej tutaj adres Web App z Google Apps Script (instrukcja w pliku INSTRUKCJA.md)
+  const ENDPOINT = "https://script.google.com/macros/s/AKfycbzHW3hHFI72W9Aj0UphEmj7qHtbVRS-RLSJwvszJSi0K6redcf0bComJBi0RgDsI2bbJw/exec";
+  const CONSENT_VERSION = "kontakt-v1-2026-11";
+
+  const form = document.getElementById('checkForm');
+  const btn = document.getElementById('sendBtn');
+  const err = document.getElementById('err');
+
+  function showErr(msg){ err.textContent = msg; err.style.display = 'block'; }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    err.style.display = 'none';
+
+    const required = ['imie','miasto','firma','fach','telefon'];
+    for (const id of required){
+      const el = document.getElementById(id);
+      if (!el.value.trim()){ el.focus(); return showErr('Uzupełnij, proszę, wszystkie wymagane pola.'); }
+    }
+    const tel = document.getElementById('telefon').value.replace(/[^\d+]/g,'');
+    if (tel.length < 9){ document.getElementById('telefon').focus(); return showErr('Sprawdź numer telefonu.'); }
+    const mail = document.getElementById('email').value.trim();
+    if (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){ document.getElementById('email').focus(); return showErr('Sprawdź adres e-mail.'); }
+    if (!document.getElementById('zgoda_kontakt').checked){ return showErr('Bez zgody na kontakt nie mogę przesłać Ci wyników.'); }
+    if (document.getElementById('www').value){ return; } // bot
+
+    const data = new URLSearchParams();
+    ['imie','miasto','firma','fach','telefon','email','strona'].forEach(id => data.append(id, document.getElementById(id).value.trim()));
+    data.append('cel', [...form.querySelectorAll('input[name=cel]:checked')].map(c => c.value).join('; '));
+    data.append('zgoda_kontakt', 'tak');
+    data.append('zgoda_wideo', document.getElementById('zgoda_wideo').checked ? 'tak' : 'nie');
+    data.append('zgoda_tekst', document.getElementById('zgoda_kontakt').parentElement.innerText.trim());
+    data.append('zgoda_wersja', CONSENT_VERSION);
+    data.append('zrodlo', new URLSearchParams(location.search).get('src') || document.referrer || 'bezposrednio');
+    data.append('strona_url', location.href);
+
+    btn.disabled = true; btn.textContent = 'Wysyłam…';
+    try{
+      if (ENDPOINT.startsWith('WKLEJ')) throw new Error('brak adresu');
+      await fetch(ENDPOINT, { method:'POST', mode:'no-cors', body:data });
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('done').style.display = 'block';
+    }catch(ex){
+      btn.disabled = false; btn.textContent = 'Wyślij i odbierz darmowy check';
+      showErr('Coś poszło nie tak. Napisz proszę na filip@enblissed.com, odezwę się.');
+    }
+  });
+</script>
+</body>
+</html>
