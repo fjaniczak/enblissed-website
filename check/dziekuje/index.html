@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dzięki, mam Twoje zgłoszenie | Enblissed</title>
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/img/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/img/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preload" href="/fonts/plus-jakarta-sans-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Strona po wysłaniu formularza z /check/. Osobny adres = konwersja „Formularz” w Google Ads (URL zawiera /check/dziekuje/).
+     Tag Google Ads i Consent Mode wklejać tutaj, w <head>, razem z resztą strony, dopiero przed startem kampanii. -->
+<style>
+  /* fonty z serwera enblissed.com (/fonts), bez Google Fonts */
+  @font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/inter-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/inter-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/inter-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/inter-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/plus-jakarta-sans-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/plus-jakarta-sans-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/plus-jakarta-sans-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/plus-jakarta-sans-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  /* ===== Kolory marki: podmień tutaj, reszta strony się dopasuje ===== */
+  :root{
+    --ink:#101010;        /* tekst główny */
+    --muted:#4d5560;      /* tekst pomocniczy */
+    --bg:#ffffff;         /* tło strony */
+    --card:#ffffff;
+    --soft:#EEF6F4;       /* jasna zieleń z oferty */       /* tło kart */
+    --brand:#1E5163;      /* kolor marki (nagłówek, przycisk) */
+    --brand-ink:#ffffff;  /* tekst na kolorze marki */
+    --accent:#4FB39A;     /* akcent (liczby, podkreślenia) */
+    --line:#dfe6e8;       /* obramowania */
+    --error:#C8453A;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
+  a{color:var(--brand)}
+  .wrap{max-width:640px;margin:0 auto;padding:0 16px}
+  .topbar{height:8px;background:linear-gradient(90deg,#1E5163 0 40%,#2E74A8 40% 70%,#4FB39A 70%)}
+  header.top{padding:18px 0}
+  .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#101010;font-family:'Plus Jakarta Sans',Inter,sans-serif;font-weight:800;letter-spacing:.14em;font-size:17px}
+  .logo img{width:44px;height:44px;display:block}
+  h1,h2{font-family:'Plus Jakarta Sans',Inter,sans-serif}
+  main{padding:24px 0 48px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px 24px;box-shadow:0 10px 30px rgba(29,36,51,.06);text-align:center}
+  .tick{width:64px;height:64px;border-radius:50%;background:var(--soft);color:var(--brand);display:grid;place-items:center;margin:0 auto 16px;font-size:32px;font-weight:700}
+  h1{font-size:30px;line-height:1.2;margin:0 0 10px;letter-spacing:-.3px}
+  .lead{font-size:18px;color:var(--muted);margin:0}
+  h2{font-size:20px;margin:36px 0 14px}
+  ol{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  ol li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:14px 16px}
+  ol li b{display:block;color:var(--brand)}
+  ol li span{color:var(--muted);font-size:15px}
+  .note{background:var(--soft);border-radius:12px;padding:16px;margin-top:24px;font-size:15px}
+  .back{display:inline-block;margin-top:28px;font-weight:600;text-decoration:none}
+  footer{padding:32px 0 48px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+  @media (max-width:480px){.card{padding:24px 18px} h1{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<header class="top">
+  <div class="wrap"><a class="logo" href="/"><img src="/img/sygnet.webp" alt="" width="44" height="44"><span>ENBLISSED</span></a></div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="card">
+      <div class="tick" aria-hidden="true">✓</div>
+      <h1>Dzięki, mam Twoje zgłoszenie</h1>
+      <p class="lead">Sprawdzę Twoją firmę na mapie Google i odezwę się w ciągu 2 dni roboczych na numer z formularza</p>
+    </div>
+
+    <h2>Co teraz się dzieje</h2>
+    <ol>
+      <li><b>Dziś albo jutro</b><span>Wpisuję w Google to, co wpisują Twoi klienci w Twoim mieście, i patrzę, kto jest w pierwszej trójce na mapie</span></li>
+      <li><b>Do 2 dni roboczych</b><span>Dzwonię albo piszę na WhatsAppie z 2–3 rzeczami, które znalazłem. Jedna zwykle jest do poprawienia od ręki</span></li>
+      <li><b>Potem decydujesz Ty</b><span>Jeśli chcesz coś z tym zrobić, umawiamy się na 20 minut. Jeśli nie, wyniki i tak zostają u Ciebie</span></li>
+    </ol>
+
+    <p class="note">Wolisz konkretną godzinę na telefon? Napisz na <a href="mailto:filip@enblissed.com">filip@enblissed.com</a>, dopasuję się</p>
+
+    <a class="back" href="/">← Wróć na stronę główną</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Enblissed · Utrecht · <a href="mailto:filip@enblissed.com">filip@enblissed.com</a></div>
+</footer>
+</body>
+</html>

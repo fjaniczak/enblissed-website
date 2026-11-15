@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Darmowy check widoczności w Google | Enblissed</title>
 <meta name="description" content="Sprawdzę, jak Twoja firma remontowa wypada w Google Maps w Twoim mieście. Za darmo, po polsku, w 2 dni robocze.">
-<link rel="icon" href="/img/favicon.png" type="image/png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/img/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/img/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="preload" href="/fonts/plus-jakarta-sans-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -327,6 +330,9 @@
       await fetch(ENDPOINT, { method:'POST', mode:'no-cors', body:data });
       document.getElementById('formWrap').style.display = 'none';
       document.getElementById('done').style.display = 'block';
+      // Osobny adres po wysłaniu = konwersja „Formularz” w Google Ads. Parametr src idzie dalej, żeby było widać źródło
+      const src = new URLSearchParams(location.search).get('src');
+      location.href = '/check/dziekuje/' + (src ? '?src=' + encodeURIComponent(src) : '');
     }catch(ex){
       btn.disabled = false; btn.textContent = 'Wyślij i odbierz darmowy check';
       showErr('Coś poszło nie tak. Napisz proszę na filip@enblissed.com, odezwę się.');
